@@ -1,0 +1,5 @@
+*.png !text !filter !merge !diff
+*.jpg !text !filter !merge !diff
+*.json !text !filter !merge !diff
+*.astro !text !filter !merge !diff
+*.svg !text !filter !merge !diff
