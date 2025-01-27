@@ -1,7 +1,60 @@
 ---
+import DjSetsSection from '../components/DjSetsSection.astro';
+import Landingpage from '../components/Landingpage.astro';
 import Layout from '../layouts/Layout.astro';
+
 ---
 
-<Layout>
-	
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400..840;1,400..840&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+	<link rel="icon" type="image/png" href="public/sr.v2-.png"/> <!-- Enlace al favicon, icono que aparece en la pestaña del navegador -->
+	<meta charset="UTF-8"> <!-- Codificación de caracteres -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Escala la página al tamaño del dispositivo -->
+	<style>
+		html {
+			scroll-behavior: smooth;
+		}
+		body {
+			margin: 0;
+			padding: 0;
+			overflow-x: hidden;
+			font-family: 'Andada Pro', serif;
+		}
+		* {
+			box-sizing: border-box;
+		}
+		main {
+			overflow-x: hidden;
+		}
+		.andada-pro-italic {
+  			font-family: "Andada Pro", serif;
+  			font-optical-sizing: auto;
+  			font-weight: <weight>;
+  			font-style: normal;
+		} 
+		.special-elite-regular {
+  		font-family: "Special Elite", serif;
+  		font-weight: 400;
+  		font-style: normal;
+		}
+
+	</style>
+
+</head> 
+
+<Layout title="Illuminnate Music">
+  <main id="top">
+		<Landingpage />
+
+		<DjSetsSection />
+		<Landingpage />
+		<Landingpage />
+		
+		
+	</main>
 </Layout>
