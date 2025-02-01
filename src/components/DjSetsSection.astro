@@ -1,6 +1,97 @@
-<section id="landing" class="relative w-full h-screen overflow-hidden text-white">
+---
+const videoList = [
+    { id: 'l1oeSKG2aL8', title: 'Barcelona Chillout Session by Salva Romanelli', thumbnail: '/l1oeSKG2aL8-HD.jpg' },
+    { id: 'A3dYIUW56LU', title: 'Barcelona Rooftop Session by Damien Fisher', thumbnail: '/A3dYIUW56LU-HD.jpg' },
+    { id: 'VYNe93r04Pc', title: 'Barcelona B2B Rooftop Session @ Sagrada Familia', thumbnail: '/VYNe93r04Pc-HD.jpg' },
+    { id: '0DDc5buvYbU', title: 'Barcelona Rooftop Sunset Session by AWA', thumbnail: '/0DDc5buvYbU-HD.jpg' },
+    { id: 'dYrMsnWHRG8', title: 'Folktronica & Organica - Hybrid Set by HILA', thumbnail: '/dYrMsnWHRG8-HD.jpg' }
+];
+
+const apiKey = 'GOOGLE_API_KEY_PLACEHOLDER';
+const fetchVideoStats = async (videoId) => {
+    const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videoId}&key=${apiKey}`);
+    const data = await response.json();
+    return data.items[0].statistics;
+};
+
+const initialVideoId = 'A3dYIUW56LU';
+const initialStats = await fetchVideoStats(initialVideoId);
+---
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mainVideo = document.querySelector('#mainVideo');
+    const playlistItems = document.querySelectorAll('.playlist-item');
+    const viewsElement = document.querySelector('#views');
+    const likesElement = document.querySelector('#likes');
+
+    const fetchVideoStats = async (videoId) => {
+      const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videoId}&key=${apiKey}`);
+      const data = await response.json();
+      return data.items[0].statistics;
+    };
+
+    playlistItems.forEach(item => {
+      item.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const videoId = item.dataset.videoId;
+        mainVideo.src = `https://www.youtube.com/embed/${videoId}`;
+        const stats = await fetchVideoStats(videoId);
+        viewsElement.textContent = `${stats.viewCount} views`;
+        likesElement.textContent = `${stats.likeCount} likes`;
+      });
+    });
+  });
+</script>
+
+<style>
+  /* Bubble Float Right */
+  .hvr-bubble-float-right {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+  }
+  
+  .hvr-bubble-float-right:before {
+    position: absolute;
+    z-index: -1;
+    top: calc(50% - 10px);
+    right: 0;
+    content: '';
+    border-style: solid;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent #e3e3e3;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+  }
+  
+  .hvr-bubble-float-right:hover,
+  .hvr-bubble-float-right:focus,
+  .hvr-bubble-float-right:active {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+  
+  .hvr-bubble-float-right:hover:before,
+  .hvr-bubble-float-right:focus:before,
+  .hvr-bubble-float-right:active:before {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+</style>
+
+<section id="djsets" class="relative w-full h-screen overflow-hidden text-white">
     <video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
-        <source src="/Illuminnate landing video 2.mp4" type="video/mp4">
+        <source src="/DJI_0651.MP4" type="video/mp4">
     </video>
     
     <div class="absolute -top-24 left-10 z-10">
@@ -11,70 +102,48 @@
         <header class="flex flex-col items-center">
             <nav>
                 <ul class="list-none p-0 m-0 flex space-x-10 text-white">
-                    <li class="my-8 font-andada-pro-italic"><a href="#home" class="block transform transition-transform duration-300 hover:scale-125 text-2xl">Home</a></li>
+                    <li class="my-8 font-andada-pro-italic"><a href="#landing" class="block transform transition-transform duration-300 hover:scale-125 text-2xl">Home</a></li>
                     <li class="my-8 font-orbitron"><a href="#djsets" class="block transform transition-transform duration-300 hover:scale-125 text-2xl">Dj Sets</a></li>
-                    <li class="my-8 font-orbitron"><a href="#shop" class="block transform transition-transform duration-300 hover:scale-125 text-2xl">Shop</a></li>
+                    <li class="my-8 font-orbitron"><a href="https://www.illuminnatechiro.com/shop" class="block transform transition-transform duration-300 hover:scale-125 text-2xl">Shop</a></li>
                     <li class="my-8 font-orbitron"><a href="#contact" class="block transform transition-transform duration-300 hover:scale-125 text-2xl">Contact</a></li>
                 </ul>
             </nav>
-
-            <div class="flex justify-center items-start h-full">
-                <!-- Lista de videos de YouTube -->
-                <div class="w-1/3 p-4 overflow-y-auto h-full">
-                    <h2 class="text-2xl mb-4">Playlist</h2>
-                    <ul class="list-none p-0">
-                        <li class="mb-4">
-                            <a href="https://www.youtube.com/watch?v=RZfH7hAYqyU" target="_blank" class="block p-2 bg-gray-800 hover:bg-gray-700 rounded">Diplo - Live in Lençóis Maranhenses National Park</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="https://www.youtube.com/watch?v=91wIFm-xKyI" target="_blank" class="block p-2 bg-gray-800 hover:bg-gray-700 rounded">Diplo b2b Hugel - Live in Brooklyn (Full Set)</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="https://www.youtube.com/watch?v=GYQ0T_KMlxE" target="_blank" class="block p-2 bg-gray-800 hover:bg-gray-700 rounded">Diplo - Live in Brooklyn (Full Set)</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="https://www.youtube.com/watch?v=gnA13qIsEpc" target="_blank" class="block p-2 bg-gray-800 hover:bg-gray-700 rounded">Diplo & Mau P feat. Gunna - Receipts (Official Visualizer)</a>
-                        </li>
-                        <li class="mb-4">
-                            <a href="https://www.youtube.com/watch?v=OgBrNJEYlOA" target="_blank" class="block p-2 bg-gray-800 hover:bg-gray-700 rounded">Diplo - Live in Rio 2024 (Full Set)</a>
-                        </li>
-                        <!-- Agrega más enlaces según sea necesario -->
-                    </ul>
-                </div>
-                <!-- Video principal de YouTube -->
-                <div class="w-2/3 p-4">
-                    <iframe width="100%" height="500" src="https://www.youtube.com/embed/A3dYIUW56LU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
-            
         </header>
 
-        <div class="absolute top-8 right-8 flex gap-4">
-            
-                <a href="https://open.spotify.com/intl-es/artist/0coO5IwMkWjM10vEgZx7KP" target="_blank" class="icon-link">
-                    <img src="/spotify.svg" alt="Spotify" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
-                </a>
-           
-           
-                <a href="https://www.youtube.com/@illuminnatemusic" target="_blank" class="icon-link">
-                    <img src="/youtube.svg" alt="Youtube" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
-                </a>
-           
-            
-                <a href="https://www.instagram.com/illuminnatemusic/" target="_blank" class="icon-link">
-                    <img src="/instagram.svg" alt="Instagram" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
-                </a>
-        
-           
-                <a href="https://www.facebook.com/illuminnatemusic" target="_blank" class="icon-link">
-                    <img src="/facebook.svg" alt="Facebook" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
-                </a>
-         
-        
-                <a href="#mailing" class="icon-link">
-                    <img src="/envelope.svg" alt="Mailing List" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/>
-                </a>
-            
+        <div class="flex justify-center items-center h-full w-full">
+            <div class="w-1/3 p-4 h-[600px]">
+                <div class="bg-black bg-opacity-50 rounded-lg p-6 h-full overflow-y-auto">
+                    <h2 class="text-4xl mb-4 pl-2 text-white">More content:</h2>
+                    <ul class="list-none p-0">
+                        {videoList.map((video) => (
+                            <li class="mb-4 flex items-center">
+                                <a href="#" 
+                                   class="playlist-item hvr-bubble-float-right p-2 bg-amber-300/50 hover:bg-gray-700 rounded flex items-center w-full"
+                                   data-video-id={video.id}>
+                                    <div class="flex items-center w-full">
+                                        <img src={video.thumbnail} alt={video.title} class="w-26 h-16 object-cover" />
+                                        <span class="ml-4">{video.title}</span>
+                                    </div>
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+            <div class="w-2/3 p-4">
+                <iframe 
+                    id="mainVideo"
+                    width="80%" 
+                    height="600" 
+                    src={`https://www.youtube.com/embed/${initialVideoId}`} 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+                <div class="mt-4 text-center text-2xl">
+                    <span id="views">{initialStats.viewCount} views</span> | <span id="likes">{initialStats.likeCount} likes</span>
+                </div>
+            </div>
         </div>
     </div>
 </section>
