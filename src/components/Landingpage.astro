@@ -1,25 +1,45 @@
 <section id="landing" class="relative w-full h-screen overflow-hidden text-white">
-    <video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
-        <source src="/Illuminnate landing video 2.mp4" type="video/mp4">
-    </video>
-    
-    <div class="absolute -top-24 left-10 z-10">
-        <img src="/2.png" alt="Illuminnate Music Logo" class="w-80 h-auto">
+    <div class="absolute top-0 left-0 w-full h-full">
+        <video autoplay muted loop class="w-full h-full object-cover">
+            <source src="/Illuminnate landing video 2.mp4" type="video/mp4">
+        </video>
     </div>
     
-    <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 text-white p-4">
-        <header class="flex flex-col items-center">
-            <nav>
-                <ul class="list-none p-0 m-0 flex space-x-10 text-white">
-                    <li class="my-8 font-andada-pro-italic"><a href="#landing" class="block transform transition-transform duration-300 hover:scale-125 text-2xl">Home</a></li>
-                    <li class="my-8 font-orbitron"><a href="#djsets" class="block transform transition-transform duration-300 hover:scale-125 text-2xl">Dj Sets</a></li>
-                    <li class="my-8 font-orbitron"><a href="https://www.illuminnatechiro.com/shop" class="block transform transition-transform duration-300 hover:scale-125 text-2xl">Shop</a></li>
-                    <li class="my-8 font-orbitron"><a href="#contact" class="block transform transition-transform duration-300 hover:scale-125 text-2xl">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="text-center p-48 text-base font-special-elite text-white max-w-6xl mx-auto">
-                <h1 class="text-5xl mb-12">Who We Are</h1>
-                <p class="text-xl leading-relaxed">
+    <div class="relative w-full h-full">
+        <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 text-white p-4 overflow-y-auto md:overflow-hidden">
+            <header class="flex flex-col md:flex-row items-center justify-between mt-32 md:-mt-20">
+                <div class="flex justify-center md:justify-start md:left-10">
+                    <img id="logo" src="/2.png" alt="Illuminnate Music Logo" class="w-60 h-auto md:static md:mt-0 fixed -top-14 left-1/2 transform -translate-x-1/2 md:transform-none transition-opacity duration-300"> <!-- Aumenta el tamaño del logo -->
+                </div>
+                <nav class="flex-1 flex justify-center">
+                    <ul class="list-none p-0 m-0 flex space-x-10 text-white">
+                        <li class="my-8 font-andada-pro-italic hidden md:block"><a href="#landing" class="block transform transition-transform duration-300 hover:scale-125 text-2xl">Home</a></li>
+                        <li class="my-8 font-orbitron hidden md:block"><a href="#djsets" class="block transform transition-transform duration-300 hover:scale-125 text-2xl">Dj Sets</a></li>
+                        <li class="my-8 font-orbitron hidden md:block"><a href="https://www.illuminnatechiro.com/shop" class="block transform transition-transform duration-300 hover:scale-125 text-2xl">Shop</a></li>
+                        <li class="my-8 font-orbitron hidden md:block"><a href="#contact" class="block transform transition-transform duration-300 hover:scale-125 text-2xl">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="flex gap-4">
+                    <a href="https://open.spotify.com/intl-es/artist/0coO5IwMkWjM10vEgZx7KP" target="_blank" class="icon-link hidden md:block">
+                        <img src="/spotify.svg" alt="Spotify" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
+                    </a>
+                    <a href="https://www.youtube.com/@illuminnatemusic" target="_blank" class="icon-link hidden md:block">
+                        <img src="/youtube.svg" alt="Youtube" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
+                    </a>
+                    <a href="https://www.instagram.com/illuminnatemusic/" target="_blank" class="icon-link hidden md:block">
+                        <img src="/instagram.svg" alt="Instagram" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
+                    </a>
+                    <a href="https://www.facebook.com/illuminnatemusic" target="_blank" class="icon-link hidden md:block">
+                        <img src="/facebook.svg" alt="Facebook" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
+                    </a>
+                    <a href="#mailing" class="icon-link hidden md:block">
+                        <img src="/envelope.svg" alt="Mailing List" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/>
+                    </a>
+                </div>
+            </header>
+            <div id="text-content" class="text-center p-12 md:p-24 text-base font-special-elite text-white max-w-6xl mx-auto overflow-y-auto h-full">
+                <h1 class="text-3xl md:text-5xl mb-6 md:mb-12">Who We Are</h1>
+                <p class="text-lg md:text-xl leading-relaxed md:leading-loose">
                     'Welcome to Illuminnate Music a vibrant community of passionate music lovers, creators, and collaborators. Our journey started with a simple vision: to bring together people who share a deep love for music, creativity, and the transformative power of sound. Whether you're an artist, producer, DJ, or simply someone who loves to vibe out to great tunes, this space is for you.
                     
                     On our YouTube channel, we feature a wide range of content including music productions, artist showcases, collaborations, Dj Sets, and behind-the-scenes moments from our journey. But it’s not just about the content; it’s about the community. We believe in fostering a positive, inclusive, and inspiring environment where everyone can contribute, learn, and grow together.
@@ -27,34 +47,22 @@
                     At Illuminnate, we're not just making music – we're building a movement. We invite you to be part of this journey, share your experiences, and connect with like-minded creators from all corners of the world. Let's create something amazing together!'
                 </p>
             </div>
-        </header>
-
-        <div class="absolute top-8 right-8 flex gap-4">
-            
-                <a href="https://open.spotify.com/intl-es/artist/0coO5IwMkWjM10vEgZx7KP" target="_blank" class="icon-link">
-                    <img src="/spotify.svg" alt="Spotify" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
-                </a>
-           
-           
-                <a href="https://www.youtube.com/@illuminnatemusic" target="_blank" class="icon-link">
-                    <img src="/youtube.svg" alt="Youtube" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
-                </a>
-           
-            
-                <a href="https://www.instagram.com/illuminnatemusic/" target="_blank" class="icon-link">
-                    <img src="/instagram.svg" alt="Instagram" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
-                </a>
-        
-           
-                <a href="https://www.facebook.com/illuminnatemusic" target="_blank" class="icon-link">
-                    <img src="/facebook.svg" alt="Facebook" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
-                </a>
-         
-        
-                <a href="#mailing" class="icon-link">
-                    <img src="/envelope.svg" alt="Mailing List" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/>
-                </a>
-            
         </div>
     </div>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const logo = document.getElementById('logo');
+        const textContent = document.getElementById('text-content');
+        if (logo && textContent) {
+            textContent.addEventListener('scroll', function() {
+                if (textContent.scrollTop > 50) {
+                    logo.style.opacity = '0';
+                } else {
+                    logo.style.opacity = '1';
+                }
+            });
+        }
+    });
+</script>
