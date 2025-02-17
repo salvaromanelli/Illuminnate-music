@@ -1,33 +1,33 @@
 <section id="contact" class="relative w-full h-screen overflow-hidden text-white">
-    <video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
-        <source src="/DJI_0650.MP4" type="video/mp4">
-    </video>
-    
-    <div class="absolute -top-24 left-10 z-10">
-        <img src="/2.png" alt="Illuminnate Music Logo" class="w-80 h-auto">
+    <div class="absolute top-0 left-0 w-full h-full">
+        <video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
+            <source src="/DJI_0650.MP4" type="video/mp4">
+        </video>
     </div>
     
-    <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 text-white p-4">
-        <header class="flex flex-col items-center">
-            <nav>
-                <ul class="list-none p-0 m-0 flex space-x-10 text-white">
-                    <li class="my-8 font-andada-pro-italic"><a href="#landing" class="block transform transition-transform duration-300 hover:scale-125 text-2xl">Home</a></li>
-                    <li class="my-8 font-orbitron"><a href="#djsets" class="block transform transition-transform duration-300 hover:scale-125 text-2xl">Dj Sets</a></li>
-                    <li class="my-8 font-orbitron"><a href="https://www.illuminnatechiro.com/shop" class="block transform transition-transform duration-300 hover:scale-125 text-2xl">Shop</a></li>
-                    <li class="my-8 font-orbitron"><a href="#contact" class="block transform transition-transform duration-300 hover:scale-125 text-2xl">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="text-center p-10 text-base font-special-elite text-white max-w-6xl mx-auto">
-                <h1 class="text-5xl mb-12">Get in Touch</h1>
-                <p class="text-xl leading-relaxed">
+    <div class="relative w-full h-full flex items-center justify-center">
+        <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 text-white p-4 overflow-y-auto md:overflow-hidden">
+            <header class="flex flex-col items-center justify-center mt-4 md:mt-0">
+                <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 md:static md:transform-none">
+                    <img src="/2.png" alt="Illuminnate Music Logo" class="w-60 h-auto"> <!-- Aumenta el tamaño del logo -->
+                </div>
+                <nav class="flex-1 flex justify-center">
+                    <ul class="list-none p-0 m-0 flex space-x-10 text-white">
+                        <li class="my-8 font-andada-pro-italic hidden md:block"><a href="#landing" class="block transform transition-transform duration-300 hover:scale-125 text-2xl">Home</a></li>
+                        <li class="my-8 font-orbitron hidden md:block"><a href="#djsets" class="block transform transition-transform duration-300 hover:scale-125 text-2xl">Dj Sets</a></li>
+                        <li class="my-8 font-orbitron hidden md:block"><a href="https://www.illuminnatechiro.com/shop" class="block transform transition-transform duration-300 hover:scale-125 text-2xl">Shop</a></li>
+                        <li class="my-8 font-orbitron hidden md:block"><a href="#contact" class="block transform transition-transform duration-300 hover:scale-125 text-2xl">Contact</a></li>
+                    </ul>
+                </nav>
+            <div class="text-center p-12 md:p-48 text-base font-special-elite text-white max-w-6xl mx-auto mt-4 md:-mt-36">
+                <h1 class="text-3xl md:text-5xl mb-6 md:mb-12">Get in Touch</h1>
+                <p class="text-lg md:text-xl leading-relaxed">
                     We'd love to hear from you! Whether you have a question, want to collaborate, or just want to share your thoughts, we're here for it. At Illuminnate Music, we believe in building meaningful connections and fostering creativity. Don’t hesitate to reach out!
 
                     Fill out the form below or connect with us through the social links, and we'll get back to you as soon as possible. Let’s keep the conversation going, and let's create something amazing together!
-
-
                 </p>
                 <div class="flex flex-col items-center mt-12">
-                    <form class="w-full max-w-lg bg-black bg-opacity-50 p-8 rounded-lg">
+                    <form class="w-full max-w-lg bg-black bg-opacity-50 p-8 rounded-lg" id="contactForm">
                         <div class="mb-4">
                             <label class="block text-white text-sm font-bold mb-2" for="name">
                                 Name
@@ -47,7 +47,7 @@
                             <textarea class="w-full px-3 py-2 text-black leading-tight border rounded shadow appearance-none focus:outline-none focus:shadow-outline" id="message" rows="5" placeholder="Your Message"></textarea>
                         </div>
                         <div class="flex items-center justify-between">
-                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
+                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onclick="sendMessage()">
                                 Submit
                             </button>
                         </div>
@@ -55,38 +55,69 @@
                 </div>
             </div>
         </header>
-
-        <div class="absolute top-8 right-8 flex gap-4">
-            
-                <a href="https://open.spotify.com/intl-es/artist/0coO5IwMkWjM10vEgZx7KP" target="_blank" class="icon-link">
-                    <img src="/spotify.svg" alt="Spotify" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
-                </a>
-           
-           
-                <a href="https://www.youtube.com/@illuminnatemusic" target="_blank" class="icon-link">
-                    <img src="/youtube.svg" alt="Youtube" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
-                </a>
-           
-            
-                <a href="https://www.instagram.com/illuminnatemusic/" target="_blank" class="icon-link">
-                    <img src="/instagram.svg" alt="Instagram" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
-                </a>
         
-           
-                <a href="https://www.facebook.com/illuminnatemusic" target="_blank" class="icon-link">
-                    <img src="/facebook.svg" alt="Facebook" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
-                </a>
-         
+        <div class="absolute top-8 right-8 flex gap-4 z-30">
+            
+            <a href="https://open.spotify.com/intl-es/artist/0coO5IwMkWjM10vEgZx7KP" target="_blank" class="icon-link hidden md:block">
+                <img src="/spotify.svg" alt="Spotify" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
+            </a>
+       
+       
+            <a href="https://www.youtube.com/@illuminnatemusic" target="_blank" class="icon-link hidden md:block">
+                <img src="/youtube.svg" alt="Youtube" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
+            </a>
+       
         
-                <a href="#mailing" class="icon-link">
-                    <img src="/envelope.svg" alt="Mailing List" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/>
-                </a> 
-        </div>
+            <a href="https://www.instagram.com/illuminnatemusic/" target="_blank" class="icon-link hidden md:block">
+                <img src="/instagram.svg" alt="Instagram" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
+            </a>
+    
+       
+            <a href="https://www.facebook.com/illuminnatemusic" target="_blank" class="icon-link hidden md:block">
+                <img src="/facebook.svg" alt="Facebook" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
+            </a>
+     
+    
+            <a href="#mailing" class="icon-link hidden md:block">
+                <img src="/envelope.svg" alt="Mailing List" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/>
+            </a>
+        
+    </div>
+        
+    </div>
     </div>
 </section>
 
-<footer class="w-full bg-black bg-opacity-50 text-white p-4">
-    <div class="container mx-auto text-right">
-        <p class="text-left -ml-40">&copy; 2025 Illuminnate Music </p>
+<script>
+    async function sendMessage() {
+        const nameElement = document.getElementById('name') as HTMLInputElement;
+        const emailElement = document.getElementById('email') as HTMLInputElement;
+        const messageElement = document.getElementById('message') as HTMLTextAreaElement;
+
+        if (!nameElement || !emailElement || !messageElement) {
+            alert('Please fill out all fields.');
+            return;
+        }
+
+        const name = nameElement.value;
+        const email = emailElement.value;
+        const message = messageElement.value;
+
+        const response = await fetch('/send_message', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, email, message })
+        });
+
+        const result = await response.json();
+        alert(result.success || result.error);
+    }
+</script>
+
+<footer class="w-full bg-black bg-opacity-90 text-white p-4">
+    <div class="container mx-auto text-center md:text-right">
+        <p class="text-center md:text-right">&copy; 2025 Illuminnate Music</p>
     </div>
 </footer>
