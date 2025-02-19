@@ -8,7 +8,7 @@ const videoList = [
 ];
 
 const apiKey = 'GOOGLE_API_KEY_PLACEHOLDER';
-const fetchVideoStats = async (videoId) => {
+const fetchVideoStats = async (videoId: string) => {
     const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videoId}&key=${apiKey}`);
     const data = await response.json();
     return data.items[0].statistics;
@@ -20,12 +20,13 @@ const initialStats = await fetchVideoStats(initialVideoId);
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const mainVideo = document.querySelector('#mainVideo');
-    const playlistItems = document.querySelectorAll('.playlist-item');
-    const viewsElement = document.querySelector('#views');
-    const likesElement = document.querySelector('#likes');
+    const mainVideo = document.querySelector('#mainVideo') as HTMLIFrameElement;
+    const playlistItems = document.querySelectorAll('.playlist-item') as NodeListOf<HTMLElement>;
+    const viewsElement = document.querySelector('#views') as HTMLElement;
+    const likesElement = document.querySelector('#likes') as HTMLElement;
 
-    const fetchVideoStats = async (videoId) => {
+    const apiKey = 'GOOGLE_API_KEY_PLACEHOLDER';  
+    const fetchVideoStats = async (videoId: string) => {
       const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videoId}&key=${apiKey}`);
       const data = await response.json();
       return data.items[0].statistics;
@@ -35,10 +36,15 @@ const initialStats = await fetchVideoStats(initialVideoId);
       item.addEventListener('click', async (e) => {
         e.preventDefault();
         const videoId = item.dataset.videoId;
-        mainVideo.src = `https://www.youtube.com/embed/${videoId}`;
-        const stats = await fetchVideoStats(videoId);
-        viewsElement.textContent = `${stats.viewCount} views`;
-        likesElement.textContent = `${stats.likeCount} likes`;
+        if (videoId) {
+          mainVideo.src = `https://www.youtube.com/embed/${videoId}`;
+          const stats = await fetchVideoStats(videoId);
+          viewsElement.textContent = `${stats.viewCount} views`;
+          likesElement.textContent = `${stats.likeCount} likes`;
+        } else {
+          console.error('videoId is undefined');
+        }
+
       });
     });
   });
