@@ -1,6 +1,6 @@
 <section id="contact" class="relative w-full h-screen overflow-hidden text-white">
     <div class="absolute top-0 left-0 w-full h-full">
-        <video autoplay muted loop class="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
+        <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-[-1]">
             <source src="/DJI_0650.MP4" type="video/mp4">
         </video>
     </div>
@@ -19,6 +19,33 @@
                         <li class="my-8 font-orbitron hidden md:block"><a href="#contact" class="block transform transition-transform duration-300 hover:scale-125 text-2xl">Contact</a></li>
                     </ul>
                 </nav>
+                <div class="flex gap-4">
+            
+                    <a href="https://open.spotify.com/intl-es/artist/0coO5IwMkWjM10vEgZx7KP" target="_blank" class="icon-link hidden md:block">
+                        <img src="/spotify.svg" alt="Spotify" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
+                    </a>
+               
+               
+                    <a href="https://www.youtube.com/@illuminnatemusic" target="_blank" class="icon-link hidden md:block">
+                        <img src="/youtube.svg" alt="Youtube" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
+                    </a>
+               
+                
+                    <a href="https://www.instagram.com/illuminnatemusic/" target="_blank" class="icon-link hidden md:block">
+                        <img src="/instagram.svg" alt="Instagram" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
+                    </a>
+            
+               
+                    <a href="https://www.facebook.com/illuminnatemusic" target="_blank" class="icon-link hidden md:block">
+                        <img src="/facebook.svg" alt="Facebook" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
+                    </a>
+             
+            
+                    <a href="#mailing" class="icon-link hidden md:block">
+                        <img src="/envelope.svg" alt="Mailing List" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/>
+                    </a>
+                
+                </div>
             </header>
             <div class="text-center p-12 md:p-48 text-base font-special-elite text-white max-w-6xl mx-auto -mt-20 md:-mt-52">
                 <h1 class="text-3xl md:text-5xl mb-6 md:mb-12">Get in Touch</h1>
@@ -55,44 +82,14 @@
                     </form>
                 </div>
             </div>
-        
-        
-        <div class="absolute top-8 right-8 flex gap-4 z-30">
-            
-            <a href="https://open.spotify.com/intl-es/artist/0coO5IwMkWjM10vEgZx7KP" target="_blank" class="icon-link hidden md:block">
-                <img src="/spotify.svg" alt="Spotify" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
-            </a>
-       
-       
-            <a href="https://www.youtube.com/@illuminnatemusic" target="_blank" class="icon-link hidden md:block">
-                <img src="/youtube.svg" alt="Youtube" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
-            </a>
-       
-        
-            <a href="https://www.instagram.com/illuminnatemusic/" target="_blank" class="icon-link hidden md:block">
-                <img src="/instagram.svg" alt="Instagram" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
-            </a>
-    
-       
-            <a href="https://www.facebook.com/illuminnatemusic" target="_blank" class="icon-link hidden md:block">
-                <img src="/facebook.svg" alt="Facebook" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/> 
-            </a>
-     
-    
-            <a href="#mailing" class="icon-link hidden md:block">
-                <img src="/envelope.svg" alt="Mailing List" class="w-8 h-8 transition-transform duration-300 filter invert hover:scale-125"/>
-            </a>
-        
-    </div>
-        
-    </div>
+        </div>
     </div>
 </section>
 
 <script>
     async function sendMessage() {
         const nameElement = document.getElementById('name') as HTMLInputElement;
-        const emailElement = document.getElementById('email') as HTMLInputElement;
+        const emailElement = document.getElementById('email') as HTMLInputElement; 
         const messageElement = document.getElementById('message') as HTMLTextAreaElement;
 
         if (!nameElement || !emailElement || !messageElement) {
@@ -104,7 +101,7 @@
         const email = emailElement.value;
         const message = messageElement.value;
 
-        const response = await fetch('/send_message', {
+        const response = await fetch('http://localhost:8080/send_message', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -115,6 +112,8 @@
         const result = await response.json();
         alert(result.success || result.error);
     }
+
+    (window as any).sendMessage = sendMessage;
 </script>
 
 <footer class="w-full bg-black bg-opacity-90 text-white p-4">
