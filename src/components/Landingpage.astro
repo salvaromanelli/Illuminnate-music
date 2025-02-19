@@ -1,6 +1,6 @@
 <section id="landing" class="relative w-full h-screen overflow-hidden text-white">
     <div class="absolute top-0 left-0 w-full h-full">
-        <video autoplay muted loop class="w-full h-full object-cover">
+        <video autoplay muted loop playsinline class="w-full h-full object-cover">
             <source src="/Illuminnate landing video 2.mp4" type="video/mp4">
         </video>
     </div>
@@ -59,8 +59,10 @@
             textContent.addEventListener('scroll', function() {
                 if (textContent.scrollTop > 50) {
                     logo.style.opacity = '0';
+                    textContent.style.marginTop = '-60px'; // Ajusta el margen superior del contenido de texto
                 } else {
                     logo.style.opacity = '1';
+                    textContent.style.marginTop = '0'; // Restablece el margen superior del contenido de texto
                 }
             });
         }
