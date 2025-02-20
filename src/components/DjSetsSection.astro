@@ -7,7 +7,7 @@ const videoList = [
     { id: 'dYrMsnWHRG8', title: 'Folktronica & Organica - Hybrid Set by HILA', thumbnail: '/dYrMsnWHRG8-HD.jpg' }
 ];
 
-const apiKey = 'AIzaSyDfCu-BI-67s-fjlD0Xw8cxYp38dRUqS6w';
+const apiKey = 'API_KEY_PLACEHOLDER';
 const fetchVideoStats = async (videoId: string) => {
     const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videoId}&key=${apiKey}`);
     const data = await response.json();
@@ -25,7 +25,7 @@ const initialStats = await fetchVideoStats(initialVideoId);
     const viewsElement = document.querySelector('#views') as HTMLElement;
     const likesElement = document.querySelector('#likes') as HTMLElement;
 
-    const apiKey = 'AIzaSyDfCu-BI-67s-fjlD0Xw8cxYp38dRUqS6w';  
+    const apiKey = 'API_KEY_PLACEHOLDER';  
     const fetchVideoStats = async (videoId: string) => {
       const response = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videoId}&key=${apiKey}`);
       const data = await response.json();
