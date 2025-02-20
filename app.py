@@ -31,7 +31,7 @@ def send_message():
         return jsonify({'error': 'Faltan datos'}), 400
 
     msg = Message('Nuevo mensaje de contacto',
-                  recipients=['salvabmx@gmail.com'])
+                  recipients=['EMAIL-PLACEHOLDER'])
     msg.body = f"Nombre: {name}\nEmail: {email}\nMensaje: {message}"
     mail.send(msg)
 
