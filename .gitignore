@@ -23,3 +23,7 @@ credentials.env
 
 # jetbrains setting folder
 .idea/
+
+# Python y herramientas
+__pycache__/
+.cache_ggshield
